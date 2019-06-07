@@ -44,7 +44,8 @@ function Peer (opts) {
   self.trickle = opts.trickle !== undefined ? opts.trickle : true
   self.allowHalfTrickle = opts.allowHalfTrickle !== undefined ? opts.allowHalfTrickle : false
   self.iceCompleteTimeout = opts.iceCompleteTimeout || ICECOMPLETE_TIMEOUT
-
+  self.withDataChannel = opts.withDataChannel !== undefined ? opts.withDataChannel : true
+  
   self.destroyed = false
   self.connected = false
 
@@ -118,13 +119,15 @@ function Peer (opts) {
   // - onfingerprintfailure
   // - onnegotiationneeded
 
-  if (self.initiator) {
-    self._setupData({
-      channel: self._pc.createDataChannel(self.channelName, self.channelConfig)
-    })
-  } else {
-    self._pc.ondatachannel = function (event) {
-      self._setupData(event)
+  if (self.withDataChannel) {
+    if (self.initiator) {
+      self._setupData({
+        channel: self._pc.createDataChannel(self.channelName, self.channelConfig)
+      })
+    } else {
+      self._pc.ondatachannel = function (event) {
+        self._setupData(event)
+      }
     }
   }
 
