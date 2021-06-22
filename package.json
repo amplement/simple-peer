@@ -10,6 +10,9 @@
   "bugs": {
     "url": "https://github.com/feross/simple-peer/issues"
   },
+  "publishConfig": {
+      "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "buffer": "^6.0.3",
     "debug": "^4.3.1",
