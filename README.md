@@ -8,6 +8,7 @@ git commit -m 'build: patch 9.11.0'
 git push
 git tag -a v9.11.0 -m "amplement 9.11.0"
 git push origin --tags
+npm publish
 ```
 
 # simple-peer [![ci][ci-image]][ci-url] [![coveralls][coveralls-image]][coveralls-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url] [![javascript style guide][sauce-image]][sauce-url]
