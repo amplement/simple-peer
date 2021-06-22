@@ -60,7 +60,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/feross/simple-peer.git"
+    "url": "git://github.com/amplement/simple-peerimple-peer.git"
   },
   "scripts": {
     "build": "browserify -s SimplePeer -r . | minify > simplepeer.min.js",
