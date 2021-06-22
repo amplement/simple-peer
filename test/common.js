@@ -1,6 +1,6 @@
-var get = require('simple-get')
-var thunky = require('thunky')
-var bowser = require('bowser')
+const get = require('simple-get')
+const thunky = require('thunky')
+const bowser = require('bowser')
 
 exports.getConfig = thunky(function (cb) {
   // Includes TURN -- needed for tests to pass on Sauce Labs
@@ -25,7 +25,7 @@ if (process.env.WRTC === 'wrtc') {
 }
 
 // create a test MediaStream with two tracks
-var canvas
+let canvas
 exports.getMediaStream = function () {
   if (exports.wrtc) {
     const source = new exports.wrtc.nonstandard.RTCVideoSource()
@@ -47,7 +47,7 @@ exports.isBrowser = function (name) {
   if (typeof (window) === 'undefined') return false
   const satifyObject = {}
   if (name === 'ios') { // bowser can't directly name iOS Safari
-    satifyObject['mobile'] = { 'safari': '>=0' }
+    satifyObject.mobile = { safari: '>=0' }
   } else {
     satifyObject[name] = '>=0'
   }
